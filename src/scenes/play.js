@@ -32,9 +32,9 @@ class Play extends Phaser.Scene{
         //initialize objects
         this.p1Rocket = new Rocket(this, game.config.width/2, 
                     game.config.height - borderUISize - borderPadding, 'rocket' );
-        this.ship1 = new Ship(this, game.config.width/3, 200, 'spaceship', 0);
-        this.ship2 = new Ship(this, game.config.width/2, 275, 'spaceship', 0);
-        this.ship3 = new Ship(this, game.config.width/1, 325, 'spaceship', 0);
+        this.ship1 = new Ship(this, game.config.width/3, 200, 'spaceship', 0, 1);
+        this.ship2 = new Ship(this, game.config.width/2, 275, 'spaceship', 0, 1);
+        this.ship3 = new Ship(this, game.config.width/1, 325, 'spaceship', 0, 1);
         //keys
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
@@ -133,7 +133,7 @@ class Play extends Phaser.Scene{
           boom.destroy();                       // remove explosion sprite
         });     
         // score add and repaint
-        this.p1Score += ship.points;
+        this.p1Score += ship.pointValue;
         this.scoreLeft.text = this.p1Score;    
         this.sound.play('sfx_explosion'); 
     }
